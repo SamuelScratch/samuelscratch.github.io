@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;800&family=Playball&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <title>Samuel Kernen</title>
+    </head>
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Haut de page</button>
+        <header>
+            <div class="AppTitle">
+                <h1>
+                    Samuel Kernen;
+                </h1>
+                <h3>
+                    Développement.Logiciel()
+                </h3>
+            </div>
+            <div class="PhotoProfile">
+                <img src="./source/PhotoProfile.jpg" alt="PhotoProfile">
+            </div>
+        </header>
+
+        <nav>
+            <a href="accueil.html#QuiSuisJe">./Présentation</a>
+            <a href="accueil.html#Realisations">./Réalisation</a>
+            <a href="accueil.html#Contact">./Contact</a>
+        </nav>
+
+
+        <div class="GrandePhoto">
+            <img src="./source/PhotoProfile.jpg" alt="PhotoProfile">
+            <ul>
+                <li>C/C++</li>
+                <li>C#</li>
+                <li>HTML/CSS</li>
+                <li>Javascript</li>
+                <li>Python</li>
+                <li>Arduino</li>
+            </ul>
+        </div>
+        <div class="TexteIntroduction">
+            <p>Mon objectif est de devenir développeur logiciel. On demande à un développeur de produire une solution...et j’aime résoudre des problèmes.</p>
+        </div>
+        <span class="SpanQualite">
+            Adaptation - Rigueur - Implication
+        </span>
+
+        <div class="GrandTitre" id="QuiSuisJe">
+            <h1>Qui suis-je ?</h1>
+        </div>
+        <a class="BoutVoirCV" href="./source/CV_Samuel_Kernen.pdf" target="_blank">Voir mon CV</a>
+
+        <span class="BaliseTitre">Un parcours atypique</span>
+
+        <div class="BoxDeroulant">
+
+            <div class="TitreDeroulant" id="ParcoursHotellerie" onclick="DescriptionDeroulant('ParcoursHotellerieDescription')">
+                <p>
+                    2015 : Hôtellerie Restauration
+                </p>
+                <i class="material-icons" id="ParcoursHotellerieDescriptionIcon">expand_more</i>
+            </div>
+            <div class="DescriptionDeroulant" id="ParcoursHotellerieDescription">
+                <p>
+                    Attiré par le domaine de la restauration, j'ai décidé après le collège de faire un Bac Professionnel Commercialisation et Service en Restauration. Cependant le métier de serveur ne me correspondait pas mais je n'oublie pas l'expérience acquise à travers la formation et les stages.
+                </p>                
+            </div>
+
+            <div class="TitreDeroulant" id="ParcoursAudiovisuel" onclick="DescriptionDeroulant('ParcoursAudiovisuelDescription')">
+                <p>
+                    2018 : Audiovisuel
+                </p>
+                <i class="material-icons" id="ParcoursAudiovisuelDescriptionIcon">expand_more</i>
+            </div>
+            <div class="DescriptionDeroulant" id="ParcoursAudiovisuelDescription">
+                <p>
+                    J'ai toujours été intrigué par les caméras, les techniques de l'audiovisuel comme la télé ou le cinéma. Ainsi afin de préparé un BTS dans ce domaine j'ai effectué une Mise à Niveau Cinéma AudioVisuel. La formation m'a plu, toutefois faute d'avoir trouvé une alternance pour le BTS j'ai dû me réorienter.
+                </p>                
+            </div>
+
+            <div class="TitreDeroulant" id="ParcoursInformatique" onclick="DescriptionDeroulant('ParcoursInformatiqueDescription')">
+                <p>
+                    2019 : Informatique
+                </p>
+                <i class="material-icons" id="ParcoursInformatiqueDescriptionIcon">expand_more</i>
+            </div>
+            <div class="DescriptionDeroulant" id="ParcoursInformatiqueDescription">
+                <p>
+                    Fasciné par les ordinateurs depuis toujours, je décide enfin de me lancer dans ce domaine de manière sérieuse. J'ai alors intégré un BTS Systèmes Numériques : Informatique et Réseaux. Le fait de répondre à un besoin et de créer un outil est ce qui me plait dans le développement logiciel, c’est pourquoi je veux en faire aujourd’hui mon métier.
+                </p>                
+            </div>
+
+        </div>
+
+        <span class="BaliseTitre">Des compétences</span>
+         <div class="BoxCompetences">
+             
+            <div class="CompetenceDescription">
+                <div class="Bande">
+                </div>
+                <div class="CompetenceDescriptionTexte">
+                    <p>Compétences techniques :</p>
+                    <br>
+                    <ul>
+                        <li>C/C++</li>
+                        <li>C#</li>
+                        <li>HTML/CSS</li>
+                        <li>Javascript</li>
+                        <li>Python</li>
+                        <li>Arduino</li>
+                        <li>Modélisation et conception grâce à UML</li>
+                    </ul>
+                    <br>
+                </div>
+                <i class="material-icons iconCompetence" id="ParcoursInformatiqueDescriptionIcon">desktop_windows</i>
+            </div>
+
+            <div class="CompetenceDescription">
+                <div class="Bande">
+                </div>
+                <div class="CompetenceDescriptionTexte">
+                    <p>Compétences humaines :</p>
+                    <br>
+                    <ul>
+                        <li>Curieux de ce qui m'entoure</li>
+                        <li>Impliqué dans les projets</li>
+                        <li>M'adapte à mon environnement</li>
+                        <li>Appliqué et rigoureux</li>
+                    </ul>
+                    <br>
+                </div>
+                <i class="material-icons iconCompetence" id="ParcoursInformatiqueDescriptionIcon">person</i>
+            </div>
+         </div>
+
+         <div class="GrandTitre" id="Realisations">
+            <h1>Réalisations</h1>
+        </div>
+        <a class="BoutVoirCV" href="https://github.com/SamuelScratch" target="_blank">Voir mon GitHub</a>
+
+        <span class="BaliseTitre">TASKetch</span>
+        <span class="BaliseSousTitre">Un organisateur de tâche simple et efficace développé en C# puis adapté en Javascript avec Electron <br><br><i>//allez-y essayez !</i></span>
+        <embed class="TASKetch" type="text/html" src="./source/TASKetch.html" width="700" height="650">
+
+        <span class="BaliseTitre">ScroutchBOT</span>
+        <span class="BaliseSousTitre">Un robot pour la plateforme Twitch capable de répondre à des commandes pour assister le streamer. C'est une script développé en Python<br><br><i>//ScroutchBOT est le robot de la chaîne Scratch_lol !</i></span>
+        <img class="DemoScroutchBOT" src="./source/DemoScroutchBOT.png" alt="ScroutchBOT">
+
+        <div class="GrandTitre" id="Contact">
+            <h1>Contact</h1>
+        </div>
+
+        <span class="BaliseTitre">Liens utiles</span>
+
+        <div class="BoxLiens">
+            <div class="Lien">
+                <i class="material-icons iconLien">mail_outline</i>
+                <a style="text-decoration: none;">samuelkernen@yahoo.fr</a>
+            </div>
+            <div class="Lien">
+                <i class="material-icons iconLien" style="text-decoration: none;">phone</i>
+                <a >06 22 06 28 90</a>
+            </div>
+            <div class="Lien">
+                <img class="linkedin" src="https://img.icons8.com/android/24/000000/linkedin.png"/>
+                <a href="https://www.linkedin.com/in/samuel-kernen-7907b31a0/" target="_blank">LinkedIn</a>
+            </div>
+            <div class="Lien">
+                <img class="linkedin" src="https://img.icons8.com/small/24/000000/github.png"/>
+                <a href="https://github.com/SamuelScratch" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <footer>
+            <p><i>Site créé par Samuel Kernen - 2021 - Tous droits réservés</i></p>
+        </footer>
+        <script>
+            
+            function DescriptionDeroulant(identifiant){
+                var panneau = document.getElementById(identifiant);
+                if(panneau.classList.contains('Deployed')){
+                    panneau.classList.remove('Deployed');
+                    document.getElementById(identifiant + "Icon").style.transform = "rotate(0deg)";
+                }
+                else{
+                    panneau.classList.add('Deployed');
+                    document.getElementById(identifiant + "Icon").style.transform = "rotate(180deg)";
+                }
+            }
+            //Get the button
+            var mybutton = document.getElementById("myBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+    </body>
+</html>
+

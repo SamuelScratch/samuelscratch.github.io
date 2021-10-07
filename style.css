@@ -1,0 +1,421 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html {
+    line-height: 1.15; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+  }
+  
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-size: 18px ;
+}
+
+
+header{
+    display: flex;
+    width: 100%;
+    /*height: 150px;*/
+    height: auto;
+    background-color: #152045;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.50);
+    position: relative;
+    z-index: 51;
+}
+.AppTitle{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto 0 auto 5%;
+}
+header h1{
+    display: flex;
+    margin: 0 ;
+    font-family:'playball';
+    font-size: 4.209rem ;
+    font-weight: 400 ;
+    color: white;
+}
+header h3{
+    display: flex;
+    margin: 0 ;
+    font-family:'playball';
+    font-size: 1.777rem ;
+    font-weight: 400 ;
+    color: white;
+    margin-left: 15px;
+}
+.PhotoProfile{
+    display: flex;
+    margin:15px 5% 15px auto;
+    height: 120px;
+    width: 120px;
+    box-shadow: inset 0px 0px 15px #000000;
+    border-radius: 60px;
+    overflow: hidden;
+}
+.PhotoProfile img{
+    width: 100%;
+    height: 100%;
+}
+nav{
+    width: 100%;
+    background-color: #EEEEEE;
+    font-family: 'playball';
+    color: black;
+    font-size: 2.369rem;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 50;
+}
+nav a{
+    width: calc(100%/3);
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+nav a:hover{
+    background-color: lightgrey;
+}
+.GrandePhoto{
+    display: flex;
+    width: auto;
+    height: 300px;
+    margin: 100px auto 0 auto;
+}
+.GrandePhoto img{
+    height: 100%;
+    border-radius: 200px;
+    border: 7px solid #000000;
+    filter: drop-shadow(0px 0px 15px #000000);
+}
+.GrandePhoto ul{
+    display: flex;
+    flex-direction: column;
+    font-family: 'inconsolata';
+    font-size: 1.333rem;
+    font-weight: 500;
+    margin: auto 0 auto 60px;
+    height: 100%;
+}
+.GrandePhoto ul li{
+    margin: auto 0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.TexteIntroduction{
+    display: flex;
+    position: relative;
+    width: 50%;
+    flex-direction: column;
+    margin: 90px auto 0 auto;
+    font-family: 'inconsolata';
+    font-size: 1.777rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 30px 0;
+}
+.TexteIntroduction::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1.3px;
+    background-color: black;
+    top: 0;
+    left: 0;
+    transform: scaleX(60%);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.50);
+}
+.TexteIntroduction::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1.3px;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(60%);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.50);
+}
+.TexteIntroduction p{
+    text-align: center;
+}
+.SpanQualite{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    margin: 20px auto 0 auto;
+    font-family: 'inconsolata';
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.GrandTitre{
+    display: flex;
+    position: relative;
+    width: 40%;
+    flex-direction: column;
+    margin: 90px auto 0 auto;
+    font-family: 'inconsolata';
+    font-size: 1.777rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 30px 0;
+}/*
+.GrandTitre::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1.3px;
+    background-color: black;
+    top: 0;
+    left: 0;
+    transform: scaleX(60%);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.50);
+}*/
+.GrandTitre::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1.3px;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(60%);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.50);
+}
+.GrandTitre h1{
+    text-align: center;
+}
+a.BoutVoirCV{
+    display: flex;
+    width: auto;
+    height: auto;
+    border: solid 1.5px black;
+    border-radius: 25px;
+    text-decoration: none;
+    margin: 60px auto 0 auto;
+    padding: 7px;
+    text-align: center;
+    font-family: 'inconsolata';
+    font-size: 1.333rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+}
+a.BoutVoirCV:hover{
+    background-color: gainsboro;
+}
+a.BoutVoirCV:active{
+    color: white;
+    background-color: #425985;
+}
+.BaliseTitre{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    margin: 60px auto 0 auto;
+    font-family: 'inconsolata';
+    font-weight: 500;
+    font-size: 2.369rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.BaliseSousTitre{
+    display: flex;
+    width: 40%;
+    text-align: center;
+    flex-direction: column;
+    margin: 30px auto 0 auto;
+    font-family: 'inconsolata';
+    font-weight: 500;
+    font-size: 1.333rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.BaliseSousTitre i{
+    font-size: 1rem;
+}
+
+.BoxDeroulant{
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto 0 auto;
+    width: 50%;
+}
+.TitreDeroulant{
+    display: flex;
+    font-family: 'inconsolata';
+    font-size: 1.5rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 51;
+    border: solid 1px black;
+    height: 40px;
+    margin-top: -1px;
+    transition: 0.3s;
+}
+.TitreDeroulant:hover{
+    color: white;
+    background-color: #324974;
+}
+.material-icons{
+    float: right;
+    transition: 0.3s;
+    margin: auto;
+}
+.material-icons.iconCompetence{
+    font-size: 90px;
+    margin: 10px 10px 0 0 ;
+    color: #152045;
+}
+
+.TitreDeroulant p{
+    margin: auto 10px;
+    width: 100%;
+}
+.DescriptionDeroulant{
+    display: flex;
+    height: 0;
+    font-family: 'inconsolata';
+    font-size: 1.333rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: transform 0.5s linear;
+    overflow: hidden;
+    z-index: 50;
+    background-color: #EEEEEE;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.DescriptionDeroulant p{
+    margin: 6px;
+}
+.DescriptionDeroulant.Deployed{
+    height: auto;
+}
+
+.BoxCompetences{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 30px auto 0 auto;
+    font-family: 'inconsolata';
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.Bande{
+    margin: 10px;
+    width: 10px;
+    height: inherit;
+    border-radius: 10px;
+    /*background-color: #425985;*/
+    background-color: #10215a;
+}
+.CompetenceDescription{
+    display: flex;
+    width: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.40);
+    border-radius: 15px;
+    padding: 8px 10px;
+    margin: 30px auto ;
+}
+.CompetenceDescriptionTexte{
+    margin: 10px 0 0 10px;
+    width: 100%;
+}
+.CompetenceDescription p{
+    font-size: 1.5rem;
+}
+.CompetenceDescription ul{
+    margin-left: 20px;
+    font-size: 1.333rem;
+}
+
+.TASKetch{
+    display: flex;
+    margin: 40px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50);
+}
+
+#myBtn {
+    display: none;
+    opacity: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: #152045c0;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 30px;
+    transition: 0.5s;
+  }
+  
+  #myBtn:hover {
+    background-color: white;
+    box-shadow: inset 0px 0px 0px 2px #152045c0;
+    color: #152045;
+  }
+  footer{
+      display: flex;
+      background-color: white;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+      height: 75px;
+      font-family: 'inconsolata';
+      font-size: 1rem;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  footer p{
+      margin: auto 10px ;
+      
+  }
+  .DemoScroutchBOT{
+      display: flex;
+      margin: 30px auto;
+      height: 300px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  }
+
+  .BoxLiens{
+      display: flex;
+      flex-direction: column;
+      margin: 50px auto;
+      font-family: 'inconsolata';
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      font-size: 1.5rem;
+      text-align: left;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+      border: solid 2px rgba(0, 0, 0, 0.5);
+      padding: 10px;
+  }
+  .Lien{
+      display: flex;
+      flex-direction: row;
+      margin: 10px 0;
+  }
+  .Lien a{
+      width: 100%;
+    text-align: left;
+    color: black;
+    margin-left: 10px;
+}
+.material-icons.iconLien{
+    margin: 0 10px;
+}
+.linkedin{
+    float: right;
+    transition: 0.3s;
+    margin: 0 10px;
+}

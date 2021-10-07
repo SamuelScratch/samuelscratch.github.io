@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TASKetch</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript">
+  
+      /****************  VARIABLES  ********************/
+      
+      var ListeTache = [];
+    
+      class CSousTache{
+        constructor(titre, done){
+          this.titre = titre;
+          this.done = done;
+        }
+      }
+      class CTache{
+        constructor(titre, description, dateLimite, SousTache, id, couleur){
+          this.titre = titre;
+          this.description = description;
+          this.dateLimite = dateLimite;
+          this.SousTache = [];
+          this.couleur = couleur;
+          for(var i = 0 ; i < SousTache.length ; i++){
+            this.SousTache.push(new CSousTache(SousTache[i].titre, SousTache[i].done));
+          }
+        }
+      }
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      var NumTache = 0;
+      var NumSousTache = 0;
+      var OldTacheSelected = -1;
+      var TacheSelected = -1;
+      var isModif = false;
+      /****************  Fonctions Traitement  ********************/
+    
+      function Sauvegarder(){
+        var ListeTriee = [];
+        for(var i = 0 ; i < ListeTache.length ; i++){
+          if(ListeTache[i] != null){
+            ListeTriee.push(ListeTache[i]);
+          }
+        }
+        var test = JSON.stringify(ListeTriee);
+        if(test ==""){
+          test = "échec stringify";
+        }
+        localStorage.saveListeTache = test;
+        //document.title = "TASKetch - sauvegarde réussie";
+      }
+      function ClearStorage(){
+        localStorage.saveListeTache = "";
+        document.getElementById("PanListTask").innerHTML = "";
+        NumTache = 0;
+        ListeTache = [];
+        //document.title = "TASKetch - localStorage nettoyé";
+        
+      }
+      
+      function InitialiserFichierTache(){
+        if(typeof(Storage) !== "undefined"){
+          
+          if(localStorage.saveListeTache){
+            var result = localStorage.saveListeTache;
+
+            if(result != ""){
+              ListeTache = JSON.parse(localStorage.saveListeTache);
+              //document.title = "TASKetch - lancement de l'initialisation";
+              //document.getElementById("AffichageDescTache").innerHTML = localStorage.saveListeTache;
+              NumTache = 0;
+              NewTacheInitialisation();
+            }
+            else{
+              
+            }
+          }
+        }
+      }
+    
+      function NewTacheInitialisation(){
+        
+        for(var j = 0 ; j < ListeTache.length ; j++)
+        {
+          if(ListeTache[j] != null)
+          {
+            let titre = ListeTache[j].titre;
+          let description = ListeTache[j].description;
+          let dateLimite = ListeTache[j].dateLimite;
+          let couleur = ListeTache[j].couleur;
+          /*
+          SousTache = ListeTache[j].SousTache;
+          for(var i = 0 ; i < ListeTache[j].SousTache.length; i++){
+            SousTacheNew.push(new CSousTache(ListeTache[j].SousTache[i].titre, ListeTache[j].SousTache[i].done))
+          }
+          ListeTache.push(new CTache(titre, description, dateLimite, SousTacheNew, NumTache));
+          */
+          let divTache = document.createElement("div");
+          divTache.className = "TacheConteneur";
+          let spanTache = document.createElement("span");
+          spanTache.className = "nomTache";
+          spanTache.textContent = titre;
+          let divQuitter = document.createElement("div");
+          divQuitter.className = "divQuitter";
+          divQuitter.style.backgroundColor = couleur;
+          divQuitter.onclick = function(){
+            delete ListeTache[this.parentElement.id];
+            this.parentElement.remove();
+            Sauvegarder();            
+          };
+          divTache.appendChild(spanTache);
+          divTache.appendChild(divQuitter);
+          divTache.id = j - 0;
+          divTache.onclick = function (){AffichageTache(this.id);};
+          document.getElementById("PanListTask").appendChild(divTache);
+          NumTache++;
+          }
+        }
+        //document.title = "TASKetch - initialisation réussie";
+      }
+    
+      function NewTache(){
+        let titre = document.getElementById("nomCreaTache").value;
+        let description = document.getElementById("descCreaTache").value;
+        let dateLimite = "";
+        let couleur = document.getElementById("couleurTache").value;
+        if(document.getElementById("isDateLimite").checked == true){
+          dateLimite = document.getElementById("dateTache").value;
+        }
+        let SousTacheNew = [];
+        
+        for(var i = 0 ; i < document.getElementById("AjouterSousTache").children.length; i++){
+          SousTacheNew.push(new CSousTache(document.getElementById("AjouterSousTache").children[i].children[0].value, false))
+        }
+        if(isModif){
+          ListeTache[OldTacheSelected].titre = titre;
+          ListeTache[OldTacheSelected].description = description;
+          ListeTache[OldTacheSelected].dateLimite = dateLimite;
+          ListeTache[OldTacheSelected].SousTache = SousTacheNew;
+          ListeTache[OldTacheSelected].couleur = couleur;
+          Sauvegarder();
+          document.getElementById("PanListTask").innerHTML = "";
+          NumTache = 0;
+          InitialiserFichierTache();
+          AnnulerTache();
+        }
+        else{
+          ListeTache.push(new CTache(titre, description, dateLimite, SousTacheNew, NumTache, couleur));
+          let divTache = document.createElement("div");
+          divTache.className = "TacheConteneur";
+          let spanTache = document.createElement("span");
+          spanTache.className = "nomTache";
+          spanTache.textContent = titre;
+          let divQuitter = document.createElement("div");
+          divQuitter.className = "divQuitter";
+          divQuitter.style.backgroundColor = couleur;
+          divQuitter.onclick = function(){
+            delete ListeTache[this.parentElement.id];
+            this.parentElement.remove();
+            OldTacheSelected = -1;
+            document.getElementById("AffichageTitreTache").innerHTML = "";
+            document.getElementById("AffichageDescTache").innerHTML = "";
+            document.getElementById("AffichageSousTache").innerHTML = "";
+            Sauvegarder();            
+          };
+
+          divTache.appendChild(spanTache);
+          divTache.appendChild(divQuitter);
+          divTache.id = ListeTache.length - 1;
+          divTache.onclick = function (){AffichageTache(this.id);};
+          document.getElementById("PanListTask").appendChild(divTache);
+          Sauvegarder();
+          AnnulerTache();
+          NumTache++;
+        }
+      }
+    
+      function NewSousTache(){
+    
+        var divSousTache = document.createElement("div");
+        divSousTache.className = "divSousTache";
+        divSousTache.id = "divSousTache";
+    
+        var inputTitreTache = document.createElement("input");
+        inputTitreTache.className = "inputTitreTache";
+        inputTitreTache.type = "text";
+        inputTitreTache.placeholder = "titre sous-tache";
+        inputTitreTache.id = "inputTitreTache";
+    
+        var BoutSupprimerSousTache = document.createElement("button");
+        BoutSupprimerSousTache.className = "BoutSupprimerSousTache";
+        BoutSupprimerSousTache.textContent = "-";
+        BoutSupprimerSousTache.id = "BoutSupprimerSousTache";
+        BoutSupprimerSousTache.onclick = function(){
+        this.parentElement.remove();
+      };
+    
+        divSousTache.appendChild(inputTitreTache);
+        divSousTache.appendChild(BoutSupprimerSousTache);
+        document.getElementById("AjouterSousTache").appendChild(divSousTache);
+        inputTitreTache.focus();
+      }
+      
+      function AffichageTache(num){
+        
+        document.getElementById("AffichageSousTache").textContent = "";
+        for(var i = 0 ; i < ListeTache[num].SousTache.length ; i++){
+          var displaySousTache = document.createElement("div");
+          displaySousTache.className = "SousTache";
+          displaySousTache.id = i;
+          var checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.id = "checkbox" + i + num;
+          checkbox.name = i ;
+          
+
+          displaySousTache.appendChild(checkbox);
+          displaySousTache.innerHTML += " " + ListeTache[num].SousTache[i].titre;
+          document.getElementById("AffichageSousTache").appendChild(displaySousTache);
+        }
+    
+        document.getElementById("AffichageTitreTache").innerHTML = ListeTache[num].titre;
+        var s_date2 = "";
+        document.getElementById("AffichageDescTache").innerHTML = ListeTache[num].description.replaceAll("\n", "<br>") + "<br><br>";
+        if(ListeTache[num].dateLimite != ""){
+          var s_date = ListeTache[num].dateLimite;
+          s_date2 = new Date(s_date.substring(5,7) + "/" + s_date.substring(8,10) + "/" + s_date.substring(0,4));
+          document.getElementById("AffichageDescTache").innerHTML += s_date2.toLocaleDateString("fr-FR", options);
+        }
+        
+
+        for(var i = 0 ; i < ListeTache[num].SousTache.length ; i++){
+          if(ListeTache[num].SousTache[i].done == true){
+            document.getElementById("checkbox" + i + num).checked = true;
+          }
+          else{
+            document.getElementById("checkbox" + i + num).checked = false;
+          }
+          document.getElementById("checkbox" + i + num).onclick = function(){
+              ListeTache[num].SousTache[this.name].done = this.checked;
+              Sauvegarder();
+          };
+        }
+        
+        if(OldTacheSelected != -1){
+          document.getElementById(OldTacheSelected).style.backgroundColor = "white";
+        }
+        document.getElementById(num).style.backgroundColor = "gainsboro";
+        OldTacheSelected = num;
+        Sauvegarder();
+      }
+      /****************  Intéractions Boutons  ********************/
+    
+      function AjouterTache(obj){
+        //document.getElementById("PageAjouterTache").style.height = "100vh";
+        if(OldTacheSelected != -1 || obj.id == "BoutAjouterTache"){
+          document.getElementById("PageAjouterTache").style.visibility = "visible";
+          document.getElementById("PageAffichageTache").style.height = 0;
+          document.getElementById("PageAffichageTache").style.visibility = "hidden";
+          if(obj.id == "BoutModifierTache"){
+            
+            document.getElementById("nomCreaTache").value = ListeTache[OldTacheSelected].titre;
+            document.getElementById("descCreaTache").value = ListeTache[OldTacheSelected].description;
+            document.getElementById("couleurTache").value = ListeTache[OldTacheSelected].couleur;
+            if(ListeTache[OldTacheSelected].dateLimite){
+              document.getElementById("isDateLimite").checked = true;
+            }
+            else
+            {
+              document.getElementById("isDateLimite").checked = false;
+            }
+            for(var i = 0 ; i < ListeTache[OldTacheSelected].SousTache.length ; i++){
+              var divSousTache = document.createElement("div");
+              divSousTache.className = "divSousTache";
+              divSousTache.id = "divSousTache";
+              var inputTitreTache = document.createElement("input");
+              inputTitreTache.className = "inputTitreTache";
+              inputTitreTache.type = "text";
+              inputTitreTache.placeholder = "titre sous-tache";
+              inputTitreTache.id = "inputTitreTache";
+              inputTitreTache.value = ListeTache[OldTacheSelected].SousTache[i].titre;
+          
+              var BoutSupprimerSousTache = document.createElement("button");
+              BoutSupprimerSousTache.className = "BoutSupprimerSousTache";
+              BoutSupprimerSousTache.textContent = "-";
+              BoutSupprimerSousTache.id = "BoutSupprimerSousTache";
+              BoutSupprimerSousTache.onclick = function(){
+                this.parentElement.remove();
+              };
+          
+              divSousTache.appendChild(inputTitreTache);
+              divSousTache.appendChild(BoutSupprimerSousTache);
+              document.getElementById("AjouterSousTache").appendChild(divSousTache);
+            }
+            isModif = true;
+          }
+          else{
+            /*
+            document.getElementById("AffichageTitreTache").innerHTML = "";
+            document.getElementById("AffichageDescTache").innerHTML = "";
+            document.getElementById("AffichageSousTache").innerHTML = "";
+            */
+          }
+        }
+      }
+      function AnnulerTache(){
+        document.getElementById("nomCreaTache").value = "";
+        document.getElementById("descCreaTache").value = "";
+        document.getElementById("couleurTache").value = "#ffffff";
+        document.getElementById("isDateLimite").checked = false;
+        document.getElementById("PageAjouterTache").style.visibility = "collapse";
+        document.getElementById("PageAffichageTache").style.height = "100%";
+        document.getElementById("PageAffichageTache").style.visibility = "visible";
+        //document.getElementById("PageAjouterTache").style.height = "0px";
+        document.getElementById("AjouterSousTache").innerHTML = "";
+        isModif = false;
+        NumSousTache = 0;
+        document.getElementById("AffichageTitreTache").innerHTML = "";
+        document.getElementById("AffichageDescTache").innerHTML = "";
+        document.getElementById("AffichageSousTache").innerHTML = "";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="menu">
+      <button class="btn" id="BoutAjouterTache" onclick="AjouterTache(this)">Ajouter</button>
+      <button class="btn" id="BoutModifierTache" onclick="AjouterTache(this)">Modifier</button>
+    </div>
+    
+    <div class="AffichageTache" id="PanListTask">
+      <!-- 
+      <div class="TacheConteneur" onclick="AffichageTache()">
+        <span class="nomTache">Dire Bonjour</span>
+        <div class="divQuitter"></div>
+      </div>
+      -->
+    </div>
+    
+    <div class="PageAffichageTache" id="PageAffichageTache">
+      <div class="AffichageTitreTache" id = "AffichageTitreTache">
+        Bienvenue sur TASKetch
+      </div>
+      <div class="AffichageDescTache" id="AffichageDescTache">
+        Rien de mieux qu'une ToDo list pour bien s'organiser :D
+      </div>
+      
+      <div class="AffichageSousTache" id="AffichageSousTache">
+        
+      </div>
+    </div>
+    <div class="PageAjouterTache" id="PageAjouterTache">
+      <label for="nomCreaTache">Titre </label>
+      <input type="text" name="nomCreaTache" id="nomCreaTache">
+      <br><br>
+      <label for="descCreaTache">Description </label>
+      <br><br>
+      <textarea class="textarea" name="descCreaTache" id="descCreaTache"></textarea>
+      <br><br>
+      <label for="couleurTache">Couleur </label>
+      <input type="color" name="couleurTache" id="couleurTache" value="#ffffff">
+      <br><br><input type="checkbox" name="isDateLimite" id="isDateLimite">
+      <label for="dateTache">Date limite </label>
+      <input type="date" name="dateTache" id="dateTache">
+      <br>
+      <br>
+      <label for="dateTache">Sous-Taches </label><button onclick="NewSousTache()">+</button>
+      <br><br>
+
+      <div class="AjouterSousTache" id="AjouterSousTache" name="AjouterSousTache">
+        
+      </div>
+
+      <br>
+      <button class="btn" onclick="NewTache()" style="width: 100px;height: 30px;border-style: solid;border-color:#000000; border-radius: 15px;border-width: 1px;margin:20px">Valider</button>
+      <button class="btn" onclick="AnnulerTache()" style="width: 100px;height: 30px;border-style: solid;border-color:#000000; border-radius: 15px;border-width: 1px;margin:20px">Annuler</button>
+    </div>
+  </body>
+  <script type="text/javascript">
+    InitialiserFichierTache();
+  </script>
+</html>
+						

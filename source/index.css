@@ -1,0 +1,166 @@
+html{
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  overflow: hidden;
+  background-color: gainsboro;
+  padding: 0;
+  margin: 0;
+}
+.AffichageTache{
+  float: left;
+  background-color: white;
+  width: 280px;
+  height: 95%;
+  overflow: auto;
+  margin-right: 20px;
+}
+.TacheConteneur{
+  float: left;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  vertical-align: middle;
+  transition: 0.3s;
+  border-color: #b9b9b9;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+}
+.nomTache{
+  align-items: center;
+  margin-left: 10px;
+  line-height: 50px;
+  width: 100%;
+}
+.divQuitter{
+  float: right;
+  height: 100%;
+  width: 10px;
+  transition: 0.3s;
+  text-align: center;
+  font-size: 32px;
+  box-sizing: border-box;
+  border: solid #b9b9b9 1px;
+}
+.divQuitter:hover{
+  width: 50px;
+}
+
+.menu{
+  float: top;
+  width: 100%;
+  height: 40px;
+  background-color: whitesmoke;
+  filter: drop-shadow(0px 0px 5px #00000049);
+}
+
+.btn {
+  background-color: #ffffff; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: 0.3s;
+  height: 100%;
+}
+.btn:hover{
+  background-color: rgb(197, 197, 197);
+}
+.PageAjouterTache{
+  visibility: collapse;
+  background-color: rgb(212, 212, 212);
+  width: 100%;
+  height: 0px;
+  text-align: center;
+}
+.PageAjouterTache.input{
+  margin: auto;
+}
+.textarea{
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 380px;
+  height: 75px;
+  resize:none;
+}
+.PageAjouterTache.label{
+  margin: auto;
+}
+.PageAjouterTache.button{
+  margin: auto;
+}
+.AjouterSousTache{
+  overflow: auto;
+  margin: auto;
+  width: 380px;
+  height: 120px;
+  background-color: white;
+  border-radius: 3px;
+}
+.divSousTache{
+  text-align: left;
+  width: 99.9%;
+  height: 26px;
+  background-color: rgb(241, 241, 241);
+}
+.BoutSupprimerSousTache{
+  float: right;
+  margin: 0;
+  background-color: #ff9494; /* Green */
+  border: none;
+  text-decoration: none;
+  transition: 0.3s;
+  height: 100%;
+}
+.BoutSupprimerSousTache:hover{
+  background-color: rgb(255, 0, 0);
+}
+
+.inputTitreTache{
+  margin-left: 4px;
+  border-style: none;
+  width: 92.3%;
+  background-color: rgba(212, 212, 212, 0.541);
+}
+
+.PageAffichageTache{
+  background-color: gainsboro;
+  width: 100%;
+  height: 100%;
+  margin: 20px;
+  text-align: center;
+}
+.AffichageTitreTache{
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
+  text-align: center;
+  background-color: gainsboro;
+}
+.AffichageDescTache{
+  width:95%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  margin: 20px;
+  text-align: left;
+  background-color: gainsboro;
+}
+.AffichageSousTache{
+  width: 95%;
+  text-align: center;
+  font-size: 18px;
+  background-color: gainsboro;
+}
+.SousTache{
+  text-align: left;
+  width: 700px;
+  border-radius: 5px;
+}

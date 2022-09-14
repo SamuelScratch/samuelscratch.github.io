@@ -1,217 +1,221 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;800&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;800&family=Playball&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <title>Samuel Kernen</title>
-    </head>
-    <body>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Haut de page</button>
-        <header>
-            <div class="AppTitle">
-                <h1>
-                    Samuel Kernen;
-                </h1>
-                <h3>
-                    Développement.Logiciel()
-                </h3>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;800&family=Philosopher&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Samuel Kernen - Portfolio</title>
+</head>
+
+<body>
+    <header>
+        <div class="titles">
+            <div class="title">
+                Samuel Kernen
             </div>
-            <div class="PhotoProfile">
-                <img src="./source/PhotoProfile.jpg" alt="PhotoProfile">
-            </div>
-        </header>
-
-        <nav>
-            <a href="#QuiSuisJe">./Présentation</a>
-            <a href="#Realisations">./Réalisations</a>
-            <a href="#Contact">./Contact</a>
-        </nav>
-
-
-        <div class="GrandePhoto">
-            <img src="./source/PhotoProfile.jpg" alt="PhotoProfile">
-            <ul>
-                <li>C/C++</li>
-                <li>C#</li>
-                <li>HTML/CSS</li>
-                <li>Javascript</li>
-                <li>Python</li>
-                <li>Arduino</li>
-            </ul>
+            <p class="sub-title">
+                Développeur Junior
+            </p>
         </div>
-        <div class="TexteIntroduction">
-            <p>Mon objectif est de devenir développeur logiciel. On demande à un développeur de produire une solution...et j’aime résoudre des problèmes.</p>
+        <div class="image">
+            <img src="./src/logo.png" alt="">
         </div>
-        <span class="SpanQualite">
-            Adaptation - Rigueur - Implication
-        </span>
-
-        <div class="GrandTitre" id="QuiSuisJe">
-            <h1>Qui suis-je ?</h1>
+    </header>
+    <nav>
+        <a href="#presentation">Présentation</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <main>
+        <div class="portrait">
+            <img src="./src/PhotoProfile.jpg" alt="">
         </div>
-        <a class="BoutVoirCV" href="./source/CV_Samuel_Kernen.pdf" target="_blank">Voir mon CV</a>
+        <div class="description">
+            Passionné par la création, mon objectif est de
+            travailler dans le développement de logiciels et
+            d'applications web.
+        </div>
+        <h1 id="presentation">Mon Parcours</h1>
 
-        <span class="BaliseTitre">Un parcours atypique</span>
+        <div class="lien">
+            <a href="./src/CV_Samuel_Kernen.pdf" target="_blank">Voir mon CV</a>
+        </div>
 
-        <div class="BoxDeroulant">
-
-            <div class="TitreDeroulant" id="ParcoursHotellerie" onclick="DescriptionDeroulant('ParcoursHotellerieDescription')">
-                <p>
-                    2015 : Hôtellerie Restauration
-                </p>
-                <i class="material-icons" id="ParcoursHotellerieDescriptionIcon">expand_more</i>
-            </div>
-            <div class="DescriptionDeroulant" id="ParcoursHotellerieDescription">
-                <p>
-                    Attiré par le domaine de la restauration, j'ai décidé après le collège de faire un Bac Professionnel Commercialisation et Service en Restauration. Cependant le métier de serveur ne me correspondait pas mais je n'oublie pas l'expérience acquise à travers la formation et les stages.
-                </p>                
-            </div>
-
-            <div class="TitreDeroulant" id="ParcoursAudiovisuel" onclick="DescriptionDeroulant('ParcoursAudiovisuelDescription')">
-                <p>
-                    2018 : Audiovisuel
-                </p>
-                <i class="material-icons" id="ParcoursAudiovisuelDescriptionIcon">expand_more</i>
-            </div>
-            <div class="DescriptionDeroulant" id="ParcoursAudiovisuelDescription">
-                <p>
-                    J'ai toujours été intrigué par les caméras, les techniques de l'audiovisuel comme la télé ou le cinéma. Ainsi afin de préparé un BTS dans ce domaine j'ai effectué une Mise à Niveau Cinéma AudioVisuel. La formation m'a plu, toutefois faute d'avoir trouvé une alternance pour le BTS j'ai dû me réorienter.
-                </p>                
-            </div>
-
-            <div class="TitreDeroulant" id="ParcoursInformatique" onclick="DescriptionDeroulant('ParcoursInformatiqueDescription')">
-                <p>
+        <div class="accordeon">
+            <div class="title">
+                <h2>
                     2019 : Informatique
-                </p>
-                <i class="material-icons" id="ParcoursInformatiqueDescriptionIcon">expand_more</i>
+                </h2>
+                <span class="material-icons">expand_more</span>
             </div>
-            <div class="DescriptionDeroulant" id="ParcoursInformatiqueDescription">
+            <p>
+                Attiré par les ordinateurs depuis toujours, je décide enfin de me lancer dans ce domaine de manière
+                sérieuse. J'ai alors intégré un BTS Systèmes Numériques : Informatique et Réseaux. Le fait de répondre à
+                un besoin et de créer un outil est ce qui me plait dans le développement d'application, c’est pourquoi
+                j'en ai fait mon métier.
+            </p>
+        </div>
+        <div class="accordeon">
+            <div class="title">
+                <h2>
+                    2018 : Audiovisuel
+                </h2>
+                <span class="material-icons">expand_more</span>
+            </div>
+            <p>
+                J'ai toujours été intrigué par les caméras, les techniques de l'audiovisuel comme la télé ou le cinéma.
+                Ainsi afin de préparé un BTS dans ce domaine j'ai effectué une Mise à Niveau Cinéma AudioVisuel. La
+                formation m'a plu, toutefois faute d'avoir trouvé une alternance pour le BTS j'ai dû me réorienter.
+            </p>
+        </div>
+        <div class="accordeon">
+            <div class="title">
+                <h2>
+                    2015 : Restauration
+                </h2>
+                <span class="material-icons">expand_more</span>
+            </div>
+            <p>
+                Curieux du domaine de la restauration, j'ai décidé après le collège de faire un Bac Professionnel
+                Commercialisation et Service en Restauration. Cependant le métier de serveur ne me correspondait pas
+                mais je n'oublie pas l'expérience acquise à travers la formation et les stages.
+            </p>
+        </div>
+
+        <h1>Mes Compétences</h1>
+        <div class="cards">
+            <div class="skill-card">
+                <h2>
+                    Front-End
+                </h2>
                 <p>
-                    Fasciné par les ordinateurs depuis toujours, je décide enfin de me lancer dans ce domaine de manière sérieuse. J'ai alors intégré un BTS Systèmes Numériques : Informatique et Réseaux. Le fait de répondre à un besoin et de créer un outil est ce qui me plait dans le développement logiciel, c’est pourquoi je veux en faire aujourd’hui mon métier.
-                </p>                
+                    HTML - CSS - JS
+                </p>
+                <h3>Framework JS</h3>
+                <p>
+                    Angular - AngularJS
+                </p>
+                <h3>Framework CSS</h3>
+                <p>
+                    Bootstrap - Semantic UI
+                </p>
             </div>
-
+            <div class="skill-card">
+                <h2>
+                    Back-End
+                </h2>
+                <p>
+                    PHP
+                </p>
+                <p>
+                    Java - J2EE
+                </p>
+                <h3>
+                    Base de données SQL
+                </h3>
+                <p>
+                    MySQL - SQLite
+                </p>
+                <h3>
+                    NoSQL débutant
+                </h3>
+                <p>
+                    Elastic Search - Neo4j - KvLite
+                </p>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h2>Autres Technologies</h2>
+            <p>C/C++</p>
+            <p>C# - .Net</p>
+            <p>Python</p>
         </div>
 
-        <span class="BaliseTitre">Des compétences</span>
-         <div class="BoxCompetences">
-             
-            <div class="CompetenceDescription">
-                <div class="Bande">
-                </div>
-                <div class="CompetenceDescriptionTexte">
-                    <p>Compétences techniques :</p>
-                    <br>
-                    <ul>
-                        <li>C/C++</li>
-                        <li>C#</li>
-                        <li>HTML/CSS</li>
-                        <li>Javascript</li>
-                        <li>Python</li>
-                        <li>Arduino</li>
-                        <li>Modélisation et conception grâce à UML</li>
-                    </ul>
-                    <br>
-                </div>
-                <i class="material-icons iconCompetence" id="ParcoursInformatiqueDescriptionIcon">desktop_windows</i>
-            </div>
+        <h1 id="realisations">Réalisations</h1>
 
-            <div class="CompetenceDescription">
-                <div class="Bande">
+        <div class="project">
+            <h2>Applications</h2>
+            <div>
+                <h3><a href="https://scratch-projects.com" target="_blank">Sections <span class="material-icons">open_in_new</span></a></h3>
+                <p>
+                    Un réseau social qui permet aux utilisateurs de créer des rubriques
+                    personnalisées sur leur profil pour publier par thème. Réalisé en PHP avec une base de données MySQL.
+                </p>
+                <div class="images">
+                    <img src="./src/section1.png" alt="">
+                    <img src="./src/section2.png" alt="">
                 </div>
-                <div class="CompetenceDescriptionTexte">
-                    <p>Compétences humaines :</p>
-                    <br>
-                    <ul>
-                        <li>Curieux de ce qui m'entoure</li>
-                        <li>Impliqué dans les projets</li>
-                        <li>M'adapte à mon environnement</li>
-                        <li>Appliqué et rigoureux</li>
-                    </ul>
-                    <br>
-                </div>
-                <i class="material-icons iconCompetence" id="ParcoursInformatiqueDescriptionIcon">person</i>
             </div>
-         </div>
-
-         <div class="GrandTitre" id="Realisations">
-            <h1>Réalisations</h1>
+            <div>
+                <h3><a href="https://github.com/SamuelScratch/TASKroutch" target="_blank">TASKetch <span class="material-icons">open_in_new</span></a></h3>
+                <p>
+                    Un logiciel codé en C# permettant de créer des ToDo Listes.
+                </p>
+                <img src="./src/tasketch.png" alt="">
+            </div>
         </div>
-        <a class="BoutVoirCV" href="https://github.com/SamuelScratch" target="_blank">Voir mon GitHub</a>
 
-        <span class="BaliseTitre">TASKetch</span>
-        <span class="BaliseSousTitre">Un organisateur de tâche simple et efficace développé en C# puis adapté en Javascript avec Electron <br><br><i>//allez-y essayez !</i></span>
-        <embed class="TASKetch" type="text/html" src="./source/TASKetch.html" width="700" height="650">
-
-        <span class="BaliseTitre">ScroutchBOT</span>
-        <span class="BaliseSousTitre">Un robot pour la plateforme Twitch capable de répondre à des commandes pour assister le streamer. C'est une script développé en Python<br><br><i>//ScroutchBOT est le robot de la chaîne Scratch_lol !</i></span>
-        <img class="DemoScroutchBOT" src="./source/DemoScroutchBOT.png" alt="ScroutchBOT">
-
-        <div class="GrandTitre" id="Contact">
-            <h1>Contact</h1>
+        <div class="project">
+            <h2>Sites Vitrines</h2>
+            <div>
+                <h3><a href="https://maelaig-bodard.com" target="_blank">Maélaïg Bodard <span class="material-icons">open_in_new</span></a></h3>
+                <img src="./src/maelaig.png" alt="">
+            </div>
+            <div>
+                <h3><a href="http://nicolas-aragon.fr" target="_blank">Nicolas Aragon <span class="material-icons">open_in_new</span></a></h3>
+                <img src="./src/nicolas.png" alt="">
+            </div>
         </div>
-        
-        <div class="BoxLiens">
-            <div class="Lien">
-                <i class="material-icons iconLien">mail_outline</i>
-                <a style="text-decoration: none;">samuelkernen@yahoo.fr</a>
+        <h1 id="contact">Contact</h1>
+        <div class="contact" id="contact">
+            <div class="item">
+                <i class="material-icons">mail_outline</i>
+                <a href="mailto:samuelkernen@yahoo.fr">samuelkernen@yahoo.fr</a>
             </div>
-            <div class="Lien">
-                <i class="material-icons iconLien" style="text-decoration: none;">phone</i>
-                <a >06 22 06 28 90</a>
+            <div class="item">
+                <i class="material-icons">phone</i>
+                <a>06 22 06 28 90</a>
             </div>
-            <div class="Lien">
+            <div class="item">
                 <img class="linkedin" src="https://img.icons8.com/android/24/000000/linkedin.png"/>
                 <a href="https://www.linkedin.com/in/samuel-kernen-7907b31a0/" target="_blank">LinkedIn</a>
             </div>
-            <div class="Lien">
+            <div class="item">
                 <img class="linkedin" src="https://img.icons8.com/small/24/000000/github.png"/>
                 <a href="https://github.com/SamuelScratch" target="_blank">GitHub</a>
             </div>
         </div>
+    </main>
+    <footer>
+        <p><i>Site créé par Samuel Kernen - 2022 - Tous droits réservés</i></p>
+    </footer>
+</body>
 
-        <footer>
-            <p><i>Site créé par Samuel Kernen - 2021 - Tous droits réservés</i></p>
-        </footer>
-        <script>
-            
-            function DescriptionDeroulant(identifiant){
-                var panneau = document.getElementById(identifiant);
-                if(panneau.classList.contains('Deployed')){
-                    panneau.classList.remove('Deployed');
-                    document.getElementById(identifiant + "Icon").style.transform = "rotate(0deg)";
-                }
-                else{
-                    panneau.classList.add('Deployed');
-                    document.getElementById(identifiant + "Icon").style.transform = "rotate(180deg)";
-                }
-            }
-            //Get the button
-            var mybutton = document.getElementById("myBtn");
+<script>
+    $(".accordeon .title").click(accordeon);
 
-            // When the user scrolls down 20px from the top of the document, show the button
-            window.onscroll = function() {scrollFunction()};
+    function accordeon() {
+        if ($(this).next().css("display") == "none") {
+            $(".accordeon p").hide("fast");
+            $(".accordeon .title").find(".material-icons").css("transform", "rotate(0deg)")
 
-            function scrollFunction() {
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    mybutton.style.display = "block";
-                } else {
-                    mybutton.style.display = "none";
-                }
-            }
+            $(this).next().toggle("fast");
+            $(this).find(".material-icons").css("transform", "rotate(180deg)")
+        }
+        else {
+            $(this).next().hide("fast");
+            $(this).find(".material-icons").css("transform", "rotate(0deg)")
+        }
+    }
+</script>
 
-            // When the user clicks on the button, scroll to the top of the document
-            function topFunction() {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-            }
-        </script>
-    </body>
 </html>
-

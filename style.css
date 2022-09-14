@@ -109,7 +109,8 @@ h1 {
     transition: 0.3s;
 }
 .lien a:hover {
-    box-shadow: none;
+    background-color: var(--deep);
+    color: white;
 }
 
 .accordeon {

@@ -56,6 +56,7 @@ nav {
     background-color: var(--deep);
     color: var(--light);
     padding-left: 9%;
+    z-index: 50;
 }
 
 nav a {
